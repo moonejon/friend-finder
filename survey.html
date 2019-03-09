@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tables</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-center"><span class="fa fa-fire"></span>Friend Finder</h1>
+      <hr>
+      <h2 class="text-center">Take Your Placement Survey!</h2>
+      <br>
+
+      <div class="text-center">
+        <a href="/"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span>Home</button></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <!-- Current Tables in Use -->
+        <div class="card">
+          <div class="card-header">
+            <h4>Survey</h4>
+          </div>
+          <form>
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address:</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+              <label for="sel1">Would you consider yourself a happy person?</label>
+              <select class="form-control" id="q1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">How social are you?</label>
+              <select class="form-control" id="q2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">Are you good at empathy?</label>
+              <select class="form-control" id="q3">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">How refined are your manners?</label>
+              <select class="form-control" id="q4">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">What is your favorite number from 1 to 5?</label>
+              <select class="form-control" id="q5">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">Are you organized?</label>
+              <select class="form-control" id="q6">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">Are you a bubbly person?</label>
+              <select class="form-control" id="q7">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">How many close friends do you have?</label>
+              <select class="form-control" id="q8">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">Which season of Gilmore Girls is your favorite?</label>
+              <select class="form-control" id="q9">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">Just pick a number...</label>
+              <select class="form-control" id="q10">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+        </div>
+        <button type="submit" id="submit-form" class="btn btn-primary">Submit</button>
+
+
+    <footer class="footer mt-4">
+      <div class="container">
+        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/survey">API Entries List</a>
+        </p>
+      </div>
+    </footer>
+
+              <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+              
+                </div>
+              </div>
+
+  </div>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+  $("#submit-form").on("click", function () {
+
+    event.preventDefault();
+
+    var newUser = {
+    name: $("#name").val(),
+    email: $("#email").val(),
+    answers: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
+    }
+    var currentURL = window.location.origin;
+    $.post(currentURL + "/api/survey", newUser,
+      function (data) {
+
+       $("#name").val("");
+       $("#email").val("");
+       $("#q1").val("");
+       $("#q2").val("");
+       $("#q3").val("");
+       $("#q4").val("");
+       $("#q5").val("");
+       $("#q6").val("");
+       $("#q7").val("");
+       $("#q8").val("");
+       $("#q9").val("");
+       $("#q10").val("");
+      })
+      setTimeout(runTableQuery(newUser), 5000);
+    });
+
+  function runTableQuery(newUser){
+
+    var currentURL = window.location.origin;
+
+    $.ajax({ url: currentURL + "/api/survey", method: "GET" })
+      .done(function (tableData) {
+        var yourNewFriend;
+        var maxScore = 50;
+        var differences = [];
+
+        for (var i = 0; i < tableData.length - 1; i++) {
+          for (var j = 0; j < 10; j++){
+            var difference = newUser.answers[j] - tableData[i].answers[j];
+            differences.push(Math.abs(difference));
+            console.log(differences);
+          }
+        
+
+          var totalDifference = differences.reduce(addition, 0);
+          console.log(totalDifference);
+          
+          if (totalDifference < maxScore){
+            maxScore = totalDifference;
+            var yourNewFriend = tableData[i].name;
+            differences = []
+            console.log("emptiedDifferences");
+          }
+          else {
+            differences = []
+          }
+
+        }
+          $('#myModal').modal('show');
+          $('#myModal h4').html("Your new best friend is " + yourNewFriend);
+        })
+      }
+
+      function addition(a, b) {
+          return a + b;
+        };
+
+
+</script>
